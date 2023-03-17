@@ -1,0 +1,73 @@
+from reportlab.pdfgen import canvas
+import webbrowser
+
+class Relatorio:
+    def print_cliente(self):
+        webbrowser.open('relatorio_do_cliente.pdf')
+
+    def gera_relatorio_do_cliente(self):
+        self.c = canvas.Canvas('relatorio_do_cliente.pdf')
+
+        self.codigo_rel = self.codigo_entry.get()
+        self.nome_rel = self.nome_entry.get()
+        self.rg_rel = self.rg_entry.get()
+        self.cpf_rel = self.cpf_entry.get()
+        self.idade_rel = self.idade_entry.get()
+        self.sexo_rel = self.sexo_entry.get()
+        self.estado_civil_rel = self.estado_civil_entry.get()
+        self.profição_rel = self.profição_entry.get()
+        self.uf_rel = self.uf_entry.get()
+        self.naturalidade_rel = self.naturalidade_entry.get()
+        self.cep_rel = self.cep_entry.get()
+        self.rua_rel = self.rua_entry.get()
+        self.bairro_rel = self.bairro_entry.get()
+        self.complemento_rel = self.complemento_entry.get()
+        self.telefone_rel = self.telefone_entry.get()
+        self.email_rel = self.email_entry.get()
+        self.social_rel = self.rede_social_entry.get()
+
+        self.c.setFont('Helvetica-Bold', 24)
+        self.c.drawString(200, 790, 'Ficha do Cliente')
+
+        self.c.setFont('Helvetica-Bold', 18)
+        self.c.drawString(50, 700, f'Codigo:')
+        self.c.drawString(50, 670, f'Nome:')
+        self.c.drawString(50, 640, f'RG:')
+        self.c.drawString(50, 610, f'CPF:')
+        self.c.drawString(50, 580, f'Idade:')
+        self.c.drawString(50, 550, f'Sexo:')
+        self.c.drawString(50, 520, f'Estado Civil:')
+        self.c.drawString(50, 490, f'Profição:')
+        self.c.drawString(50, 460, f'CEP:')
+        self.c.drawString(50, 430, f'Naturalidade:')
+        self.c.drawString(50, 400, f'UF:')
+        self.c.drawString(50, 370, f'Rua:')
+        self.c.drawString(50, 340, f'Bairro;')
+        self.c.drawString(50, 310, f'Complemento:')
+        self.c.drawString(50, 280, f'Telefone:')
+        self.c.drawString(50, 250, f'E-mail:')
+        self.c.drawString(50, 220, f'Rede Social:')
+
+        self.c.drawString(200, 700, self.codigo_rel)
+        self.c.drawString(200, 670, self.nome_rel)
+        self.c.drawString(200, 640, self.rg_rel)
+        self.c.drawString(200, 610, self.cpf_rel)
+        self.c.drawString(200, 580, self.idade_rel)
+        self.c.drawString(200, 550, self.sexo_rel)
+        self.c.drawString(200, 520, self.estado_civil_rel)
+        self.c.drawString(200, 490, self.profição_rel)
+        self.c.drawString(200, 460, self.uf_rel)
+        self.c.drawString(200, 430, self.naturalidade_rel)
+        self.c.drawString(200, 400, self.cep_rel)
+        self.c.drawString(200, 370, self.rua_rel)
+        self.c.drawString(200, 340, self.bairro_rel)
+        self.c.drawString(200, 310, self.complemento_rel)
+        self.c.drawString(200, 250, self.telefone_rel)
+        self.c.drawString(200, 280, self.email_rel)
+        self.c.drawString(200, 220, self.social_rel)
+
+        self.c.rect(20, 100, 550, 800, fill=False, stroke=True)
+
+        self.c.showPage()
+        self.c.save()
+        self.print_cliente()
